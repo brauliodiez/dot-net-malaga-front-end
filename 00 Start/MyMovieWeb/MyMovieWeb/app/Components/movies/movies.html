@@ -1,0 +1,17 @@
+﻿<div class="container-fluid">
+    <p>movies</p>
+    <span>{{movies.heading}}</span>
+    <div class="row">
+        <div ng-repeat="movie in movies.movies">
+            <div class="col-xs-12 col-md-4">
+                <div class="thumbnail movie-thumb">
+                    <img ng-src="{{movie.posterUrl}}" />
+                    <div class="caption">
+                        <h3>{{movie.title}}</h3>
+                        <p>{{movie.sinopsis}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

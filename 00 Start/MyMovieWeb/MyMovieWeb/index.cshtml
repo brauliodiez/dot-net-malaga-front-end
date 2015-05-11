@@ -1,0 +1,26 @@
+﻿@using System.Web.Optimization
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <base href="/app/">
+    @Styles.Render("~/Content/css")
+    
+</head>
+<body ng-app="myApp" ng-strict-di ng-controller="AppController">
+    <div>
+        <p>my index page</p>
+       
+        <ng-viewport></ng-viewport>
+    </div>
+</body>
+
+    @Scripts.Render("~/bundles/libs")
+    @Scripts.Render("~/bundles/app")
+</html>
