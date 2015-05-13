@@ -7,9 +7,7 @@
     .controller('HomeController', [homeController]);
 
     function homeController() {
-        var vm = this;
-
-        vm.heading = "test";
+        var vm = this;    
     }
 })();
 

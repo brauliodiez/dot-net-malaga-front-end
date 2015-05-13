@@ -7,8 +7,7 @@
     .controller('MoviesController', ['moviesService', moviesController]);
 
     function moviesController(moviesService) {
-        var vm = this;
-        vm.heading = "test movies heading";
+        var vm = this;        
         vm.movies = [{title: "test title"}];
 
         function initialize() {
