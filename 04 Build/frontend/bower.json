@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "homepage": "https://github.com/brauliodiez/dot-net-malaga-front-end",
+  "authors": [
+    "Braulio Diez <braulio.diez@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "angularjs": "~1.4.0-rc.2",
+    "angular-new-router": "~0.5.3"
+  }
+}
