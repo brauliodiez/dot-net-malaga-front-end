@@ -33,6 +33,20 @@ module.exports = function(grunt) {
       }
     }
 
+    ,uglify: {
+      build: {
+        options: {
+          sourceMap: true,
+          sourceMapName: './build/app.min.js.map'
+        },        
+        files: [
+          {
+            './build/app.min.js' : './build/app.min.js'            
+          }
+        ]              
+      }        
+    }
+
 
     ,connect: {
       'static': { // This server will serve HTML + JS
@@ -76,7 +90,7 @@ module.exports = function(grunt) {
   
   grunt.registerTask('web', ['connect:static', 'configureProxies:server', 'connect:server']);
 
-  grunt.registerTask('build', ['clean', 'copy', 'concat']);
+  grunt.registerTask('build', ['clean', 'copy', 'concat', 'uglify:build']);
 
 
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -84,4 +98,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');  
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 };
