@@ -28,6 +28,12 @@ module.exports = function(grunt) {
             './src/app/app.js',
             './src/gbnui/servicModule.js',
             ['./src/app/components/**', '!./src/app/components/**/*.html'],            
+          ],
+          './build/lib.min.js': [
+            './src/lib/jquery/dist/jquery.min.js',
+            './src/lib/bootstrap/dist/js/bootstrap.min.js',
+            './src/lib/angularjs/angular.min.js',
+            './src/lib/angular-new-router/dist/router.es5.js',           
           ]
         }
       }
