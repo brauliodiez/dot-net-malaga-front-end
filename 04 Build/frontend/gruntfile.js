@@ -47,6 +47,14 @@ module.exports = function(grunt) {
       }        
     }
 
+    ,processhtml: {
+      dist: {
+        files: {
+          'build/index.html': ['src/index.html']
+        }
+      }
+    }
+
 
     ,connect: {
       'static': { // This server will serve HTML + JS
@@ -90,7 +98,7 @@ module.exports = function(grunt) {
   
   grunt.registerTask('web', ['connect:static', 'configureProxies:server', 'connect:server']);
 
-  grunt.registerTask('build', ['clean', 'copy', 'concat', 'uglify:build']);
+  grunt.registerTask('build', ['clean', 'copy', 'concat', 'uglify:build', 'processhtml']);
 
 
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -99,4 +107,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-processhtml');
 };
