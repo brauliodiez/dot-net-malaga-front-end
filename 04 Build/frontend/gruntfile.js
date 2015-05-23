@@ -8,14 +8,31 @@ module.exports = function(grunt) {
       main: {
          files: [
                   {
-                      expand: true, 
-                      cwd: './src/app/components', 
-                     src: ['**', '!**/*.js'], 
-                     dest: './build/app/components'
+                    expand: true, 
+                    cwd: './src/app/components', 
+                    src: ['**', '!**/*.js'], 
+                    dest: './build/app/components'
+                  },
+                  {
+                    src:'./src/index.html',
+                    dest:'./build/index.html'
                   }
       ]
       }
     }
+
+    ,concat: {
+      dist: {
+        files: {
+         './build/app.min.js': [
+            './src/app/app.js',
+            './src/gbnui/servicModule.js',
+            ['./src/app/components/**', '!./src/app/components/**/*.html'],            
+          ]
+        }
+      }
+    }
+
 
     ,connect: {
       'static': { // This server will serve HTML + JS
@@ -59,11 +76,12 @@ module.exports = function(grunt) {
   
   grunt.registerTask('web', ['connect:static', 'configureProxies:server', 'connect:server']);
 
-  grunt.registerTask('build', ['clean', 'copy']);
+  grunt.registerTask('build', ['clean', 'copy', 'concat']);
 
 
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-connect-proxy');
   grunt.loadNpmTasks('grunt-contrib-clean');  
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 };
