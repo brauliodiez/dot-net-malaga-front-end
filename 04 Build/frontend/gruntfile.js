@@ -2,7 +2,22 @@ module.exports = function(grunt) {
   var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
   grunt.initConfig({
-    connect: {
+    clean: ["build"]
+
+    ,copy: {
+      main: {
+         files: [
+                  {
+                      expand: true, 
+                      cwd: './src/app/components', 
+                     src: ['**', '!**/*.js'], 
+                     dest: './build/app/components'
+                  }
+      ]
+      }
+    }
+
+    ,connect: {
       'static': { // This server will serve HTML + JS
             options: {
                 hostname: 'localhost',
@@ -44,6 +59,11 @@ module.exports = function(grunt) {
   
   grunt.registerTask('web', ['connect:static', 'configureProxies:server', 'connect:server']);
 
+  grunt.registerTask('build', ['clean', 'copy']);
+
+
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-connect-proxy');
+  grunt.loadNpmTasks('grunt-contrib-clean');  
+  grunt.loadNpmTasks('grunt-contrib-copy');
 };
