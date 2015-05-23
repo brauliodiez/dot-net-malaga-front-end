@@ -1,5 +1,6 @@
 ﻿var app = angular.module('myApp', ['ngNewRouter', 'myApp.home', 'myApp.movies','myApp.services'])
 
+
 .controller('AppController', ['$router', AppController]);
 
 function AppController($router) {
