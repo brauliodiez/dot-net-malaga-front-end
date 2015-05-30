@@ -6,3 +6,5 @@ build/
 tools/node_modules/
 node_modules/
 *.orig
+*.suo
+*.user
